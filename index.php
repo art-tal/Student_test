@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NUOS</title>
+
+    <link rel="stylesheet" href="src/style/css/font.css">
+    <link rel="stylesheet" href="src/style/css/main.css">
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="logo">
+                <img src="src/img/logo.png" alt="logo">
+                <h2>НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ КОРАБЛЕБУДУВАННЯ <br> МЕНІ АДМІРАЛА МАКАРОВА</h2>
+            </div>
+        </div>
+
+        <hr>
+        <section class="">
+            <h1>Экономика предприятия</h1>
+            <h2>Федоренко Галина Михайловна</h2>
+            <p>На данной странице реализована возможность пройти тестирование по предмету "Экономика предприятия". На прохождение теста отведено 60 минут с момента загрузки страницы с вопросами теста. Тест пройти можно только один раз. Для того чтобы приступить к тестированию необходимо ввести ваши регистрационные данные и нажать кнопку "Приступить", после чего откроется страница с тестами. По окончанию 60 минут ваш тест будет автоматически отправлен на проверку даже если вы не закончили</p>
+        </section>
+    </header>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>
+
+<?php include_once ("src/sections/head.php")?>

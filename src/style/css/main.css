@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 10px; }
+
+header {
+  width: 100%; }
+  header .row {
+    width: 100%;
+    padding: 15px 30px; }
+    header .row .logo {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: start;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 70%; }
+      header .row .logo img {
+        display: block;
+        height: 60px;
+        margin-right: 20px; }
+      header .row .logo h2 {
+        width: 40%;
+        font-size: 1.6rem; }
