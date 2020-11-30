@@ -1,10 +1,28 @@
-
+$font_main: Arial, sans-serif;
+$bg_color: #E0E0E0;
+$font_color: #3f4240;
 
 
 * {
   margin: 0;
   padding: 0;
   font-size: 10px;
+  font-family: $font_main;
+  color: $font_color;
+}
+
+h1 {
+  font-size: 4.5rem;
+  margin: 40px 0 20px;
+}
+
+h2 {
+  font-size: 3.5rem;
+  margin: 25px 0;
+}
+
+p {
+  font-size: 1.8rem;
 }
 
 
@@ -12,7 +30,9 @@ header {
   width: 100%;
   .row {
     width: 100%;
-    padding: 15px 30px;
+    padding: 10px 30px;
+    border-bottom: 1px solid #9f9f9f;
+    box-shadow: 0 2px 7px 3px #c6c6c6;
     .logo {
       display: flex;
       justify-content: start;
@@ -26,7 +46,16 @@ header {
       h2 {
         width: 40%;
         font-size: 1.6rem;
+        margin: 5px 0;
       }
     }
+  }
+  section.sub_header {
+    width: 70%;
+    margin: auto;
+    h1, h2 {
+      text-align: center;
+    }
+
   }
 }
