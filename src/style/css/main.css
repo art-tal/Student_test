@@ -2,28 +2,81 @@
   margin: 0;
   padding: 0;
   font-size: 10px;
-  font-family: Arial, sans-serif;
-  color: #3f4240; }
+  font-family: "PT sans", Arial, sans-serif;
+  color: #1c1c1c; }
 
 h1 {
   font-size: 4.5rem;
-  margin: 40px 0 20px; }
+  margin: 40px 0 20px;
+  color: #244973; }
 
 h2 {
   font-size: 3.5rem;
-  margin: 25px 0; }
+  margin: 25px 0;
+  color: #244973; }
+
+h3 {
+  font-size: 2.5rem;
+  margin: 15px; }
+
+h4 {
+  font-size: 2.2rem;
+  margin: 10px; }
 
 p {
   font-size: 1.8rem; }
 
+label {
+  font-size: 2.2rem;
+  margin-right: 25px;
+  width: 40%; }
+
+input {
+  padding: 5px 5px 5px 15px;
+  font-size: 2.2rem;
+  border-radius: 5px;
+  width: 60%; }
+
+button {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0099ff), to(#0066cc));
+  background-image: -webkit-linear-gradient(top, #0099ff, #0066cc);
+  background-image: -o-linear-gradient(top, #0099ff, #0066cc);
+  background-image: linear-gradient(to bottom, #0099ff, #0066cc);
+  color: #f2f2f2;
+  font-size: 1.8rem;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 21px; }
+  button:hover {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(195, 150, 236, 0.66)), to(#a84681));
+    background-image: -webkit-linear-gradient(top, rgba(195, 150, 236, 0.66), #a84681);
+    background-image: -o-linear-gradient(top, rgba(195, 150, 236, 0.66), #a84681);
+    background-image: linear-gradient(to bottom, rgba(195, 150, 236, 0.66), #a84681);
+    cursor: pointer; }
+
+section {
+  padding: 75px 0;
+  border-bottom: 1px solid #9f9f9f;
+  -webkit-box-shadow: 0 2px 7px 3px #c6c6c6;
+  box-shadow: 0 2px 7px 3px #c6c6c6;
+  background-color: #f2f2f2; }
+
 header {
-  width: 100%; }
+  width: 100%;
+  border-bottom: 1px solid #9f9f9f;
+  -webkit-box-shadow: 0 2px 7px 3px #c6c6c6;
+  box-shadow: 0 2px 7px 3px #c6c6c6; }
   header .row {
     width: 100%;
     padding: 10px 30px;
     border-bottom: 1px solid #9f9f9f;
     -webkit-box-shadow: 0 2px 7px 3px #c6c6c6;
-    box-shadow: 0 2px 7px 3px #c6c6c6; }
+    box-shadow: 0 2px 7px 3px #c6c6c6;
+    background-image: url(../../img/headerbg.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center; }
     header .row .logo {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -42,11 +95,93 @@ header {
       header .row .logo h2 {
         width: 40%;
         font-size: 1.6rem;
-        margin: 5px 0; }
+        margin: 5px 0;
+        color: #f2f2f2; }
   header section.sub_header {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
     width: 70%;
-    margin: auto; }
+    margin: 60px auto;
+    background-color: #fff; }
     header section.sub_header h1, header section.sub_header h2 {
       text-align: center; }
+
+main {
+  width: 100%; }
+  main section.registration form {
+    width: 70%;
+    margin: auto;
+    text-align: center; }
+    main section.registration form .row {
+      width: 60%;
+      margin: 20px auto;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      main section.registration form .row label {
+        text-align: left; }
+    main section.registration form button {
+      display: block;
+      margin: 60px auto 0; }
+
+footer {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../../img/footer_bg-04.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  padding: 30px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  footer .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    footer .logo img {
+      height: 100px;
+      margin-right: 25px; }
+    footer .logo h2 {
+      font-size: 2rem;
+      text-align: left; }
+  footer h3, footer h4 {
+    color: #3d79bd; }
+  footer h4 {
+    display: inline-block;
+    margin-right: 25px;
+    line-height: 32px; }
+  footer a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../img/Dingtalk-square-01-light.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    background-position: center center; }
+    footer a:hover {
+      background-image: url(../../img/Dingtalk-square-01-dark.png); }
+  footer p {
+    color: #244973; }
 
 /*# sourceMappingURL=main.css.map */

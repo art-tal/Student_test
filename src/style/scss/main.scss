@@ -1,6 +1,11 @@
-$font_main: Arial, sans-serif;
-$bg_color: #E0E0E0;
-$font_color: #3f4240;
+$font_main: "PT sans", Arial, sans-serif;
+$bg_color: #f2f2f2;
+$font_color: #1c1c1c;
+
+@mixin border_b {
+  border-bottom: 1px solid #9f9f9f;
+  box-shadow: 0 2px 7px 3px #c6c6c6;
+}
 
 
 * {
@@ -14,25 +19,78 @@ $font_color: #3f4240;
 h1 {
   font-size: 4.5rem;
   margin: 40px 0 20px;
+  color: #244973;
 }
 
 h2 {
   font-size: 3.5rem;
   margin: 25px 0;
+  color: #244973;
+}
+
+h3 {
+  font-size: 2.5rem;
+  margin: 15px;
+}
+
+h4 {
+  font-size: 2.2rem;
+  margin: 10px;
 }
 
 p {
   font-size: 1.8rem;
 }
 
+label {
+  font-size: 2.2rem;
+  margin-right: 25px;
+  width: 40%;
+}
+
+input {
+  padding: 5px 5px 5px 15px;
+  font-size: 2.2rem;
+  border-radius: 5px;
+  width: 60%;
+}
+
+button {
+  background-image: linear-gradient(to bottom, #0099ff, #0066cc);
+  color: $bg_color;
+  font-size: 1.8rem;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 21px;
+  &:hover {
+    background-image: linear-gradient(to bottom, rgba(195, 150, 236, 0.66), #a84681);
+    //background-color: #063484;
+    cursor: pointer;
+  }
+}
+
+section {
+  padding: 75px 0;
+  border-bottom: 1px solid #9f9f9f;
+  box-shadow: 0 2px 7px 3px #c6c6c6;
+  background-color: $bg_color;
+}
+
 
 header {
   width: 100%;
+  @include border_b;
   .row {
     width: 100%;
     padding: 10px 30px;
-    border-bottom: 1px solid #9f9f9f;
-    box-shadow: 0 2px 7px 3px #c6c6c6;
+    //border-bottom: 1px solid #9f9f9f;
+    //box-shadow: 0 2px 7px 3px #c6c6c6;
+    @include border_b;
+    background-image: url(../../img/headerbg.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
     .logo {
       display: flex;
       justify-content: start;
@@ -47,15 +105,104 @@ header {
         width: 40%;
         font-size: 1.6rem;
         margin: 5px 0;
+        color: $bg_color;
       }
     }
   }
   section.sub_header {
+    border: none;
+    box-shadow: none;
     width: 70%;
-    margin: auto;
+    margin: 60px auto;
+    background-color: #fff;
     h1, h2 {
       text-align: center;
     }
+
+  }
+}
+
+
+
+main {
+  width: 100%;
+  section.registration {
+    form {
+      width: 70%;
+      margin: auto;
+      text-align: center;
+      .row {
+        width: 60%;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        label {
+          text-align: left;
+        }
+      }
+      button {
+        display: block;
+        margin: 60px auto 0;
+      }
+    }
+  }
+}
+
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  background-image: url(../../img/footer_bg-04.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    img {
+      height: 100px;
+      margin-right: 25px;
+    }
+    h2 {
+      font-size: 2rem;
+      text-align: left;
+    }
+  }
+
+  h3, h4 {
+    color: #3d79bd;
+  }
+
+  h4 {
+    display: inline-block;
+    margin-right: 25px;
+    line-height: 32px;
+  }
+
+  a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url(../../img/Dingtalk-square-01-light.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    background-position: center center;
+    &:hover {
+      background-image: url(../../img/Dingtalk-square-01-dark.png);
+
+    }
+  }
+
+  p {
+    color: #244973;
 
   }
 }
