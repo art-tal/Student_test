@@ -133,18 +133,31 @@ header {
 main {
   width: 100%;
   section.registration {
+    display: none;
     form {
-      width: 1200px;
+      width: 768px;
       margin: auto;
       text-align: center;
       .row {
-        width: 60%;
-        margin: 20px auto;
+        width: 100%;
+        margin: 30px auto;
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         label {
           text-align: left;
+        }
+        .empty, .error {
+          font-size: 1.4rem;
+          color: red;
+          display: none;
+          width: 768px;
+          position: absolute;
+          bottom: -1.8rem ;
+          right: 0;
+          text-align: right;
+
         }
       }
       button {
@@ -155,6 +168,7 @@ main {
   }
 
   section.test {
+    display: none;
     header {
       width: 1200px;
       margin: 0 auto 40px;
@@ -169,53 +183,62 @@ main {
       }
     }
 
+    h2.timer {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      width: 250px;
+      margin: auto;
+      padding: 15px;
+      border: 3px inset #9f9f9f;
+      font-family: "Advanced Pixel LCD-7", sans-serif;
+      font-size: 3rem;
+      font-weight: 100;
+      background-color: #000000;
+      color: chartreuse;
+      text-align: center;
+      span {
+        display: inline;
+      }
+    }
+
     .body {
       width: 992px;
       margin: auto;
       position: relative;
 
-      h2.timer {
-        position: sticky;
-        top: 15px;
-        width: 400px;
-        margin: auto;
-        padding: 15px;
-        border: 3px inset #9f9f9f;
-        font-family: "Advanced Pixel LCD-7", sans-serif;
-        font-size: 3rem;
-        font-weight: 100;
-        background-color: #000000;
-        color: chartreuse;
-        text-align: center;
-        span {
-          display: none;
-        }
-      }
 
       form {
         margin: 30px 0;
         ol.questions {
+          list-style-position: inside;
           li.questions__item {
             margin-bottom: 25px;
+            padding: 30px;
             font-size: 1.8rem;
             font-weight: bold;
+            box-shadow: 0 0 5px 2px #9f9f9f;
+            background-color: #fff;
             h5 {
+              display: inline-block;
               font-size: 1.8rem;
+              margin-bottom: 20px;
             }
             ol.answers {
               list-style-type: lower-latin;
+              margin-left: 20px;
               padding-left: 20px;
+              list-style-position: outside;
               li.answers__item {
                 font-size: 1.6rem;
                 padding-left: 15px;
+                margin-bottom: 15px;
                 input[type="radio"] {
                   width: auto;
                 }
                 label {
-                  span {
-                    font-size: 1.6rem;
-                    font-weight: normal;
-                  }
+                  font-size: 1.6rem;
+                  font-weight: normal;
                 }
               }
             }
@@ -284,6 +307,10 @@ footer {
   }
 }
 
-.disactive {
-  display: block;
+.active {
+  display: block !important;
+}
+
+.disable {
+  display: none !important;
 }
