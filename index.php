@@ -31,6 +31,8 @@
 
         <?php include_once ("src/sections/registration.php") ?>
 
+        <?php include_once ("src/sections/student_test.php") ?>
+
     </main>
 
     <footer>
@@ -54,6 +56,7 @@
 
     </footer>
 
+    <script src="src/libs/jQuery3.5.1.js"></script>
     <script src="src/js/main.js"></script>
 </body>
 </html>

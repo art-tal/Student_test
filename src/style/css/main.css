@@ -17,7 +17,8 @@ h2 {
 
 h3 {
   font-size: 2.5rem;
-  margin: 15px; }
+  margin: 15px;
+  color: #244973; }
 
 h4 {
   font-size: 2.2rem;
@@ -61,6 +62,9 @@ section {
   box-shadow: 0 2px 7px 3px #c6c6c6;
   background-color: #f2f2f2; }
 
+.active {
+  display: block; }
+
 header {
   width: 100%;
   border-bottom: 1px solid #9f9f9f;
@@ -101,7 +105,7 @@ header {
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
-    width: 70%;
+    width: 1200px;
     margin: 60px auto;
     background-color: #fff; }
     header section.sub_header h1, header section.sub_header h2 {
@@ -110,7 +114,7 @@ header {
 main {
   width: 100%; }
   main section.registration form {
-    width: 70%;
+    width: 1200px;
     margin: auto;
     text-align: center; }
     main section.registration form .row {
@@ -130,6 +134,56 @@ main {
     main section.registration form button {
       display: block;
       margin: 60px auto 0; }
+  main section.test header {
+    width: 1200px;
+    margin: 0 auto 40px;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center; }
+    main section.test header h2 {
+      margin-bottom: 10px; }
+    main section.test header h4 {
+      color: #244973; }
+  main section.test .body {
+    width: 992px;
+    margin: auto;
+    position: relative; }
+    main section.test .body h2.timer {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 15px;
+      width: 400px;
+      margin: auto;
+      padding: 15px;
+      border: 3px inset #9f9f9f;
+      font-family: "Advanced Pixel LCD-7", sans-serif;
+      font-size: 3rem;
+      font-weight: 100;
+      background-color: #000000;
+      color: chartreuse;
+      text-align: center; }
+      main section.test .body h2.timer span {
+        display: none; }
+    main section.test .body form {
+      margin: 30px 0; }
+      main section.test .body form ol.questions li.questions__item {
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+        font-weight: bold; }
+        main section.test .body form ol.questions li.questions__item h5 {
+          font-size: 1.8rem; }
+        main section.test .body form ol.questions li.questions__item ol.answers {
+          list-style-type: lower-latin;
+          padding-left: 20px; }
+          main section.test .body form ol.questions li.questions__item ol.answers li.answers__item {
+            font-size: 1.6rem;
+            padding-left: 15px; }
+            main section.test .body form ol.questions li.questions__item ol.answers li.answers__item input[type="radio"] {
+              width: auto; }
+            main section.test .body form ol.questions li.questions__item ol.answers li.answers__item label span {
+              font-size: 1.6rem;
+              font-weight: normal; }
 
 footer {
   -webkit-box-sizing: border-box;
@@ -183,5 +237,8 @@ footer {
       background-image: url(../../img/Dingtalk-square-01-dark.png); }
   footer p {
     color: #244973; }
+
+.disactive {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */

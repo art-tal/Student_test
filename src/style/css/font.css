@@ -7,3 +7,13 @@
     url('../../font/pt_sans.ttf') format('truetype'), /* Safari, Android, iOS */
     url('../../font/pt_sans.svg#pt_sans') format('svg'); /* Chrome < 4, Legacy iOS */
 }
+
+@font-face {
+    font-family: 'Advanced Pixel LCD-7';
+    src: url('../../font/advanced_pixel_lcd-7.eot'); /* IE 9 Compatibility Mode */
+    src: url('../../font/advanced_pixel_lcd-7.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('../../font/advanced_pixel_lcd-7.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../../font/advanced_pixel_lcd-7.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('../../font/advanced_pixel_lcd-7.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../../font/advanced_pixel_lcd-7.svg#advanced_pixel_lcd-7') format('svg'); /* Chrome < 4, Legacy iOS */
+}

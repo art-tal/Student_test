@@ -1,6 +1,7 @@
 $font_main: "PT sans", Arial, sans-serif;
 $bg_color: #f2f2f2;
 $font_color: #1c1c1c;
+$font_header_color: #244973;
 
 @mixin border_b {
   border-bottom: 1px solid #9f9f9f;
@@ -19,18 +20,19 @@ $font_color: #1c1c1c;
 h1 {
   font-size: 4.5rem;
   margin: 40px 0 20px;
-  color: #244973;
+  color: $font_header_color;
 }
 
 h2 {
   font-size: 3.5rem;
   margin: 25px 0;
-  color: #244973;
+  color: $font_header_color;
 }
 
 h3 {
   font-size: 2.5rem;
   margin: 15px;
+  color: $font_header_color;
 }
 
 h4 {
@@ -76,6 +78,10 @@ section {
   background-color: $bg_color;
 }
 
+.active {
+  display: block;
+}
+
 
 header {
   width: 100%;
@@ -112,7 +118,7 @@ header {
   section.sub_header {
     border: none;
     box-shadow: none;
-    width: 70%;
+    width: 1200px;
     margin: 60px auto;
     background-color: #fff;
     h1, h2 {
@@ -128,7 +134,7 @@ main {
   width: 100%;
   section.registration {
     form {
-      width: 70%;
+      width: 1200px;
       margin: auto;
       text-align: center;
       .row {
@@ -144,6 +150,77 @@ main {
       button {
         display: block;
         margin: 60px auto 0;
+      }
+    }
+  }
+
+  section.test {
+    header {
+      width: 1200px;
+      margin: 0 auto 40px;
+      border: none;
+      box-shadow: none;
+      text-align: center;
+      h2 {
+        margin-bottom: 10px;
+      }
+      h4 {
+        color: $font_header_color;
+      }
+    }
+
+    .body {
+      width: 992px;
+      margin: auto;
+      position: relative;
+
+      h2.timer {
+        position: sticky;
+        top: 15px;
+        width: 400px;
+        margin: auto;
+        padding: 15px;
+        border: 3px inset #9f9f9f;
+        font-family: "Advanced Pixel LCD-7", sans-serif;
+        font-size: 3rem;
+        font-weight: 100;
+        background-color: #000000;
+        color: chartreuse;
+        text-align: center;
+        span {
+          display: none;
+        }
+      }
+
+      form {
+        margin: 30px 0;
+        ol.questions {
+          li.questions__item {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            h5 {
+              font-size: 1.8rem;
+            }
+            ol.answers {
+              list-style-type: lower-latin;
+              padding-left: 20px;
+              li.answers__item {
+                font-size: 1.6rem;
+                padding-left: 15px;
+                input[type="radio"] {
+                  width: auto;
+                }
+                label {
+                  span {
+                    font-size: 1.6rem;
+                    font-weight: normal;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -205,4 +282,8 @@ footer {
     color: #244973;
 
   }
+}
+
+.disactive {
+  display: block;
 }
