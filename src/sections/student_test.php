@@ -1,4 +1,4 @@
-<section class="test">
+<section class="test disable">
     <header>
         <h2 id="student">Кто-то из студентов</h2>
         <h4 id="studentEmail">student@mail.com</h4>
@@ -14,15 +14,15 @@
                     <h5>Can you find the definition of Enterprise?</h5>
                     <ol class="answers">
                         <li class="answers__item"><!--a-->
-                            <input id="q-1-a" type="radio" name="q-1">
+                            <input id="q-1-a" type="radio" name="q-1" value="The activity of providing goods and services involving financial and commercial and industrial aspects that has economical and managerial independency.">
                             <label for="q-1-a">The activity of providing goods and services involving financial and commercial and industrial aspects that has economical and managerial independency.</label>
                         </li>
                         <li class="answers__item"><!--b-->
-                            <input id="q-1-b" type="radio" name="q-1">
+                            <input id="q-1-b" type="radio" name="q-1" value="It is the capacity and willingness to develop, organize and manage a business venture along with any of its risks in order to make a profit.">
                             <label for="q-1-b">It is the capacity and willingness to develop, organize and manage a business venture along with any of its risks in order to make a profit.</label>
                         </li>
                         <li class="answers__item"><!--c-->
-                            <input id="q-1-c" type="radio" name="q-1">
+                            <input id="q-1-c" type="radio" name="q-1" value="It is characterized by innovation and risk-taking, and is an essential part of a nation's ability to succeed in an ever changing and increasingly competitive global marketplace.">
                             <label for="q-1-c">It is characterized by innovation and risk-taking, and is an essential part of a nation's ability to succeed in an ever changing and increasingly competitive global marketplace.</label>
                         </li>
 

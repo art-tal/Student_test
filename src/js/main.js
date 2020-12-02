@@ -4,6 +4,13 @@ const student = {
     eMail: ""
 };
 
+let templName = /[A-Z][a-z]+/;
+let templMail = /[a-z]+[.\w]+@[a-z]+\.[a-z]+/;
+
+let validName = false;
+let validLastName = false;
+let validEmail = false;
+
 const test = new Map();
 
 const studentTest = {
@@ -11,54 +18,96 @@ const studentTest = {
     test: test
 };
 
-let minutes = 0;
-let seconds = 0;
+let timeTest = {
+    minutes: 0,
+    seconds: 0,
+};
+
 
 $('#name').on('blur', () => {
     student.name = $('#name').val();
-    checkName($('#name'));
+    // checkValid($('#name'));
+    if ( checkValid( $('#name'), templName) ) {
+        validName = true;
+    } else {
+        validName = false;
+    }
+
     console.log(student.name);
 });
 
 $('#lastName').on('blur', () => {
     student.lastName = $('#lastName').val();
-    checkName($('#lastName'));
+    // checkValid($('#lastName'));
+    if ( checkValid( $('#lastName'), templName) ) {
+        validLastName = true;
+    } else {
+        validLastName = false;
+    }
+
     console.log(student.lastName);
 });
 
 $('#eMail').on('blur', () => {
     student.eMail = $('#eMail').val();
-    checkMail($('#eMail'))
+    // checkMail($('#eMail'));
+    if ( checkValid( $('#eMail'), templMail) ) {
+        validEmail = true;
+    } else {
+        validEmail = false;
+    }
+
     console.log(student.eMail);
 });
 
 
 $('#registration').on('click', () => {
     if (student.name && student.lastName && student.eMail) {
-        $('.registration').toggleClass('disable');
-        $('.test').toggleClass('disable');
+        if ( validName && validLastName && validEmail ){
+            $('.registration').toggleClass('disable');
+            $('.test').toggleClass('disable');
+            rememberUser();
+            console.log("start");
+            timer();
+        } else {
+            $('.registration').next(".error").css('display', 'block');
+            setTimeout( () => {
+                $('.registration').next(".error").css('display', 'none');
+            }, 4000 )
+        }
     }
 });
 
-function checkName(obj) {
+$('input[type="radio"]').on('change', function() {
+
+    // alert('radio');
+    let obj = $(this);
+    console.log(obj[0]);
+    console.log(obj[0].attributes[0].value);
+    test.set( obj[0].attributes[0].value, )
+
+});
+
+function checkValid(obj, templ) {
     console.log(1);
     console.log(obj);
     let str = $(obj).val();
     console.log(str);
 
-    let templName = /[A-Z][a-z]+/;
+    // let templName = /[A-Z][a-z]+/;////////////////////////
     if (!str) {
         $(obj).next(".empty").css('display', 'block');
         $(obj).nextAll(".error").css('display', 'none');
         console.log("empty");
         return false;
     }
-    if (templName.test(str)) {
+    if (templ.test(str)) {//////////////
         $(obj).nextAll(".error").css('display', 'none');
         $(obj).next(".empty").css('display', 'none');
         console.log("check");
         return true;
     } else {
+        $(obj).next(".empty").css('display', 'none');
         $(obj).nextAll(".error").css('display', 'block');
         console.log("not check");
         return false;
@@ -66,57 +115,54 @@ function checkName(obj) {
 
 }
 
-function checkMail(obj) {
-    console.log(1);
-    console.log(obj);
-    let str = $(obj).val();
-    console.log(str);
-
-    let templMail = /[a-z]+[.\w]+@[a-z]+\.[a-z]+/;
-    if (!str) {
-        $(obj).next(".empty").css('display', 'block');
-        $(obj).nextAll(".error").css('display', 'none');
-        console.log("empty");
-        return false;
-    }
-    if (templMail.test(str)) {
-        $(obj).nextAll(".error").css('display', 'none');
-        $(obj).next(".empty").css('display', 'none');
-        console.log("check");
-        return true;
-    } else {
-        $(obj).next(".empty").css('display', 'none');
-        $(obj).nextAll(".error").css('display', 'block');
-        console.log("not check");
-        return false;
-    }
+function rememberUser() {
+    localStorage.student = JSON.stringify(student);
+    $("#student").text(`${student.lastName} ${student.name}`);
+    $("#studentEmail").text(student.eMail);
 
 }
 
 function timer() {
-let time = setInterval(() => {
-    if (seconds === 59) {
-        seconds = 0;
-        ++minutes;
-    } else {
-        ++seconds;
+    let clock = $("#timer");
+    let radio = $('input[type="radio"]');
+    try {
+        if (JSON.parse( localStorage.timeTest )) {
+            timeTest = JSON.parse( localStorage.timeTest );
+        }
+    } catch (e) {
+        localStorage.timeTest = JSON.stringify(timeTest);
     }
-    $("#timer").text(`${format(minutes)}:${format(seconds)}`);
-    switch (minutes) {
+
+
+let time = setInterval(() => {
+    if (timeTest.seconds === 59) {
+        timeTest.seconds = 0;
+        ++timeTest.minutes;
+    } else {
+        ++timeTest.seconds;
+    }
+    localStorage.timeTest = JSON.stringify(timeTest);
+    clock.text(`${format(timeTest.minutes)}:${format(timeTest.seconds)}`);
+    // $("#timer").text(`${format(timeTest.minutes)}:${format(timeTest.seconds)}`);
+    switch (timeTest.minutes) {
         case 75:
-            $("#timer").css("color", "red");
+            // $("#timer").css("color", "red");
+            clock.css("color", "red");
             break;
         case 1:
-            flashing();
-            break;
-        case 80:
+            // $('input[type="radio"]').attr("disable");
+            radio.attr("disable", "disable");
+            // $('input[type="radio"]').off();
+            radio.off();
             clearInterval(time);
             sendTest();
+            localStorage.timeTest = 0;
+
             break;
     }
+    // console.log(timeTest);
 
 },1000);
-
 }
 
 function format(count) {
@@ -127,14 +173,8 @@ function format(count) {
     }
 }
 
-function flashing() { //don`t work
-        // setInterval( () => {
-        //     $("#timer > span").toggleClass('disable');
-        // },500);
-}
-
 function sendTest() {}
 
 $(document).ready(function () {
-    timer();
+
 });
