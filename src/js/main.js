@@ -62,7 +62,6 @@ $('#eMail').on('blur', () => {
     console.log(student.eMail);
 });
 
-
 $('#registration').on('click', () => {
     if (student.name && student.lastName && student.eMail) {
         if ( validName && validLastName && validEmail ){
@@ -70,25 +69,22 @@ $('#registration').on('click', () => {
             $('.test').toggleClass('disable');
             rememberUser();
             startTest = new Date();
-            console.log("start");
             timer();
             $('#formRegistration').trigger('reset');
         } else {
             $('.registration').next(".error").css('display', 'block');
             setTimeout( () => {
                 $('.registration').next(".error").css('display', 'none');
-            }, 4000 )
+            }, 4000 );
         }
     }
 });
 
-$('input[type="radio"]').on('change', function() {
-
-    // alert('radio');
+$("input[type='radio']").on('change', function() {
     let obj = $(this);
-    console.log(obj.val());
-    console.log(obj.attr("id"));
-    test.set( obj.attr("id"), obj.val());
+    test.set( obj.attr("name"), `${ obj.attr("id") } // ${ obj.val() }`);
+    console.log(test);
+    localStorage.test = JSON.stringify( Array.from(test) );
 
 });
 
@@ -153,7 +149,7 @@ let time = setInterval(() => {
             // $("#timer").css("color", "red");
             clock.css("color", "red");
             break;
-        case 1:
+        case 80:
             // $('input[type="radio"]').attr("disable");
             radio.attr("disable", "disable");
             // $('input[type="radio"]').off();
