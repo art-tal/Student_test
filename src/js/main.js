@@ -18,6 +18,8 @@ const studentTest = {
     test: test
 };
 
+let startTest = '';
+let finishTest = '';
 let timeTest = {
     minutes: 0,
     seconds: 0,
@@ -67,8 +69,10 @@ $('#registration').on('click', () => {
             $('.registration').toggleClass('disable');
             $('.test').toggleClass('disable');
             rememberUser();
+            startTest = new Date();
             console.log("start");
             timer();
+            $('#formRegistration').trigger('reset');
         } else {
             $('.registration').next(".error").css('display', 'block');
             setTimeout( () => {
@@ -82,9 +86,9 @@ $('input[type="radio"]').on('change', function() {
 
     // alert('radio');
     let obj = $(this);
-    console.log(obj[0]);
-    console.log(obj[0].attributes[0].value);
-    test.set( obj[0].attributes[0].value, )
+    console.log(obj.val());
+    console.log(obj.attr("id"));
+    test.set( obj.attr("id"), obj.val());
 
 });
 
@@ -173,7 +177,9 @@ function format(count) {
     }
 }
 
-function sendTest() {}
+function sendTest() {
+    finishTest = new Date();
+}
 
 $(document).ready(function () {
 

@@ -1,5 +1,5 @@
 <section class="registration">
-    <form action="" name="registration">
+    <form id="formRegistration" action="" name="registration">
         <div class="row">
             <label for="name">Enter Your name</label>
             <input id="name" type="text" placeholder="Name">
