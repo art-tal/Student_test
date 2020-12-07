@@ -11,7 +11,7 @@ let validName = false;
 let validLastName = false;
 let validEmail = false;
 
-const test = new Map();
+const test = {};
 
 const studentTest = {
     student: student,
@@ -62,6 +62,7 @@ $('#eMail').on('blur', () => {
     console.log(student.eMail);
 });
 
+
 $('#registration').on('click', () => {
     if (student.name && student.lastName && student.eMail) {
         if ( validName && validLastName && validEmail ){
@@ -69,23 +70,25 @@ $('#registration').on('click', () => {
             $('.test').toggleClass('disable');
             rememberUser();
             startTest = new Date();
+            console.log("start");
             timer();
             $('#formRegistration').trigger('reset');
+            isThereTest();
         } else {
             $('.registration').next(".error").css('display', 'block');
             setTimeout( () => {
                 $('.registration').next(".error").css('display', 'none');
-            }, 4000 );
+            }, 4000 )
         }
     }
 });
 
 $("input[type='radio']").on('change', function() {
     let obj = $(this);
-    test.set( obj.attr("name"), `${ obj.attr("id") } // ${ obj.val() }`);
-    console.log(test);
-    localStorage.test = JSON.stringify( Array.from(test) );
-
+    console.log(obj.val());
+    console.log(obj.attr("id"));
+    test[obj.attr("id")] = obj.val();
+    localStorage.test = JSON.stringify(test);
 });
 
 function checkValid(obj, templ) {
@@ -173,9 +176,21 @@ function format(count) {
     }
 }
 
+function isThereTest() {
+    let testInStorage = JSON.parse(localStorage.test);
+    console.log(testInStorage);
+    if (testInStorage) {
+        for (let key in testInStorage) {
+            console.log(`#${key}`);
+            $(`#${key}`).attr('checked', "checked");
+        }
+    }
+}
+
 function sendTest() {
     finishTest = new Date();
 }
+
 
 $(document).ready(function () {
 
