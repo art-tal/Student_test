@@ -189,6 +189,7 @@ function isThereTest() {
 
 function sendTest() {
     finishTest = new Date();
+
 }
 
 
