@@ -13,13 +13,11 @@
 <body>
     <header>
         <div class="row">
-<!--            --><?php //include_once ("src/sections/logo.php")?>
             <div class="logo">
                 <img src="src/img/logo.png" alt="logo">
                 <h2>НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ <br> КОРАБЛЕБУДУВАННЯ <br> ІМЕНІ АДМІРАЛА МАКАРОВА</h2>
             </div>
         </div>
-<!--        <hr>-->
         <section class="sub_header">
             <h1>Экономика предприятия</h1>
             <h2>Федоренко Галина Михайловна</h2>
@@ -33,6 +31,7 @@
 
         <?php include_once ("src/sections/student_test.php") ?>
 
+        <?php include_once ("src/sections/testDone.php") ?>
     </main>
 
     <footer>
