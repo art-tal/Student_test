@@ -7,7 +7,8 @@
     <h2 id="timer" class="timer"><span>00:00</span></h2>
 
     <div class="body">
-        <form id="test" action="/src/php/sent.php" name="test" method="post">
+        <form id="test"  name="test" method="post">
+<!--            action="/src/php/sent.php"-->
             <ol class="questions">
 
                 <li  class="questions__item"><!--1-->
@@ -438,7 +439,7 @@
 
             </ol>
 
-            <button type="submit">Send test</button>
+            <button id="submit" type="submit">Send test</button>
         </form>
     </div>
 </section>
