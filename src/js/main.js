@@ -90,11 +90,15 @@ $("input[type='radio']").on('change', function() {
     localStorage.test = JSON.stringify(test);
 });
 
-
-$("#test").submit(function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
     sendTest(event);
-});
+})
+
+// $("#test").submit(function (event) {
+//     event.preventDefault();
+//     sendTest(event);
+// });
 
 
 
@@ -193,47 +197,39 @@ function isThereTest() {
     }
 }
 
-function sendTest() {
+function sendTest(event) {
     // studentTest.student = student;
     // studentTest.test = test;
     // studentTest.timeStart = startTest;
     // studentTest.timeEnd = new Date();
     // studentTest.timer = timeTest;
     // let testDone = new FormData( studentTest );
+    console.log(1);
+    console.log(student.name, student.lastName);
+    console.log(student.eMail);
+    console.log(JSON.stringify(startTest));
+    console.log(JSON.stringify( new Date() ));
+    console.log(timeTest);
+    console.log(JSON.stringify(test));
     $.post(
         "./src/php/sent.php",
         {
-            "studen": student.name + " " + student.lastName,
+            "student": student.name + " " + student.lastName,
             "studentMail": student.eMail,
             "timeStart": JSON.stringify(startTest),
             "timeEnd": JSON.stringify( new Date() ),
             "timer": timeTest.minutes + ":" + timeTest.seconds,
             "test" : JSON.stringify(test),
-        },
-        function (data) {
-            if (data.success) {
-                $(".done").fadeIn();
-                setTimeout( ()=> {
-                    $(".done").fadeOut("slow");
-                },4000 )
-            }
-        }
-        // processData: false,
-        // contentType: false,
-        // success: function success(res) {
-        //     let respond = $.parseJSON(res);
-        //     let done = $('.done');
-        //     if (respond.success) {
-        //         done.fadeIn();
-        //         setTimeout(() => {
-        //             done.fadeOut("slow");
-        //         }, 4000);
-        //         setTimeout(() => {
-        //             formDescription.text('');
-        //         }, 5000);
+        }//,
+        // function (data) {
+        //     if (data.success) {
+        //         $(".done").fadeIn();
+        //         setTimeout( ()=> {
+        //             $(".done").fadeOut("slow");
+        //         },4000 )
         //     }
-        //
-        // },
+        // }
+
     );
 
 
