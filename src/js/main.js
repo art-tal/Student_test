@@ -11,7 +11,7 @@ let validName = false;
 let validLastName = false;
 let validEmail = false;
 
-const test = {};
+let test = {};
 
 const studentTest = {
     student: student,
@@ -187,14 +187,19 @@ function format(count) {
 }
 
 function isThereTest() {
-    let testInStorage = JSON.parse(localStorage.test);
-    console.log(testInStorage);
-    if (testInStorage) {
-        for (let key in testInStorage) {
-            console.log(`#${key}`);
-            $(`#${key}`).attr('checked', "checked");
+    try {
+        if (JSON.parse(localStorage.test)) {
+            test = JSON.parse(localStorage.test);
+            console.log(test);
+            for (let key in test) {
+                console.log(`#${key}`);
+                $(`#${key}`).attr('checked', "checked");
+            }
         }
+    } catch (e) {
+        console.log("test is empty");
     }
+
 }
 
 function sendTest(event) {
@@ -211,6 +216,7 @@ function sendTest(event) {
     console.log(JSON.stringify( new Date() ));
     console.log(timeTest);
     console.log(JSON.stringify(test));
+    let studentTest = JSON.stringify(test);
     $.post(
         "./src/php/sent.php",
         {
@@ -219,7 +225,7 @@ function sendTest(event) {
             "timeStart": JSON.stringify(startTest),
             "timeEnd": JSON.stringify( new Date() ),
             "timer": timeTest.minutes + ":" + timeTest.seconds,
-            "test" : JSON.stringify(test),
+            "test" : studentTest
         }//,
         // function (data) {
         //     if (data.success) {

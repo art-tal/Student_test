@@ -1,24 +1,5 @@
 ﻿<?php
 /* Здесь мы проверяем существуют ли переменные, которые передала форма обратной связи. Если не существуют, то мы их создаем */
-//if (isset($_POST['data'])) {$data = $_POST['data'];}
-// DEBUG
-//$data = "Test's Data";
-
-//$data = $_POST['data'];
-//echo ($data);
-//$student = $data -> student;
-//$studentMail = $data -> studentMail;
-//$timeStart = $data -> timeStart;
-//$timeEnd = $data -> timeEnd;
-//$timer = $data -> timer;
-//$test = json_decode($data -> test);
-
-//$student = $_POST['student'];
-//$studentMail = $_POST['studentMail'];
-//$timeStart = $_POST['timeStart'];
-//$timeEnd = $_POST['timeEnd'];
-//$timer = $_POST['timer'];
-//$test = json_decode($_POST['test']);
 
 if (isset($_POST['student'])) {$student = $_POST['student'];}
 else {$student = "НИХЕРА";}
@@ -35,8 +16,8 @@ else {$timeEnd = "НИХЕРА timeEnd";}
 if (isset($_POST['timer'])) {$timer = $_POST['timer'];}
 else {$timer = "НИХЕРА timer";}
 
-//if (isset($_POST['test'])) {$student = json_decode($_POST['test']);}
-//else {$test = "НИХЕРА test";}
+if (isset($_POST['test'])) {$test = json_decode($_POST['studentTest']);}
+else {$test = "НИХЕРА test";}
 
 
 
@@ -51,6 +32,9 @@ $header .= "Content-type: text/html; charset: utf8\r\n";
 $sub = "Тестовое задание $student";
 
 /*А здесь прописываете сам текст сообщения, который будет Вам отправлен. Если Вам необходимо начать новую строку необходимо поставить \n */
+$value = '';
+$key = '';
+
 $mes = "<html lang='en'>
             <head>
                 <meta charset=\"UTF-8\">
@@ -61,13 +45,17 @@ $mes = "<html lang='en'>
                 <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />
             </head>
             <body>
-                <h1>Тестовое задание {$student}</h1>
+                <h1>Тестовое задание $student</h1>
                 <h2>$studentMail</h2>
                 <h3>Тест начат: $timeStart</h3>
                 <h3>Ответы студента $student на вопросы:</h3>
-                <div>
-                    foreach ($test as $answer) {<p>$answer</p>}
-                </div>
+                    <ul>";
+
+foreach($test as $value) {
+    $mes .="<li>".$value."</li>";
+};
+
+$mes .="</ul>                    
                 <h3>Тест окончен: $timeEnd</h3>
                 <h4>Затраченое время: $timer</h4>                
             </body>
