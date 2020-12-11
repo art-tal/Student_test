@@ -1,4 +1,6 @@
 ﻿<?php
+require_once('pr.php');
+
 /* Здесь мы проверяем существуют ли переменные, которые передала форма обратной связи. Если не существуют, то мы их создаем */
 
 if (isset($_POST['student'])) {$student = $_POST['student'];}
@@ -16,9 +18,11 @@ else {$timeEnd = "НИХЕРА timeEnd";}
 if (isset($_POST['timer'])) {$timer = $_POST['timer'];}
 else {$timer = "НИХЕРА timer";}
 
-if (isset($_POST['test'])) {$test = json_decode($_POST['studentTest']);}
-else {$test = "НИХЕРА test";}
+//if (isset($_POST['test'])) {$test = $_POST['studentTest'];}
+//else {$test = "НИХЕРА test";}
 
+pr("ТЕСТ с сайта");
+//pr($test);
 
 
 /* Здесь необходимо вписать ваш e-mail адрес */
@@ -51,9 +55,9 @@ $mes = "<html lang='en'>
                 <h3>Ответы студента $student на вопросы:</h3>
                     <ul>";
 
-foreach($test as $value) {
-    $mes .="<li>".$value."</li>";
-};
+//foreach($test as $value) {
+//    $mes .="<li>".$value."</li>";
+//};
 
 $mes .="</ul>                    
                 <h3>Тест окончен: $timeEnd</h3>
@@ -66,15 +70,16 @@ $mes .="</ul>
 {
 //    $send = mail ($recipient,$sub,$mes,"Content-type:text/plain; charset = windows-1251\r\nFrom:$sender");
     $send = mail ($recipient,$sub,$mes,"Content-type:text/html; charset = utf-8\r\nFrom:$sender");
-    if ($send == 'true')
-    {
-        echo ('<p style="color: green">Send message!</p>');
-        $_POST['name'] = $_POST['email'] = $_POST['message'] = '';
-    }
-    else
-    {
-        echo ('<p style="color: red">Error!</p>');
-        $_POST['name'] = $_POST['email'] = $_POST['message'] = '';
-    }
+//    if ($send == 'true')
+//    {
+//        echo ('<p style="color: green">Send message!</p>');
+//        $_POST['name'] = $_POST['email'] = $_POST['message'] = '';
+//    }
+//    else
+//    {
+//        echo ('<p style="color: red">Error!</p>');
+//        $_POST['name'] = $_POST['email'] = $_POST['message'] = '';
+//    }
 }
+
 ?>

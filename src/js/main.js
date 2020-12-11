@@ -35,7 +35,7 @@ $('#name').on('blur', () => {
         validName = false;
     }
 
-    console.log(student.name);
+    // console.log(student.name);
 });
 
 $('#lastName').on('blur', () => {
@@ -47,7 +47,7 @@ $('#lastName').on('blur', () => {
         validLastName = false;
     }
 
-    console.log(student.lastName);
+    // console.log(student.lastName);
 });
 
 $('#eMail').on('blur', () => {
@@ -59,7 +59,7 @@ $('#eMail').on('blur', () => {
         validEmail = false;
     }
 
-    console.log(student.eMail);
+    // console.log(student.eMail);
 });
 
 $('#registration').on('click', () => {
@@ -69,7 +69,7 @@ $('#registration').on('click', () => {
             $('.test').toggleClass('disable');
             rememberUser();
             startTest = new Date();
-            console.log("start");
+            // console.log("start");
             timer();
             $('#formRegistration').trigger('reset');
             isThereTest();
@@ -84,8 +84,8 @@ $('#registration').on('click', () => {
 
 $("input[type='radio']").on('change', function() {
     let obj = $(this);
-    console.log(obj.val());
-    console.log(obj.attr("id"));
+    // console.log(obj.val());
+    // console.log(obj.attr("id"));
     test[obj.attr("id")] = obj.val();
     localStorage.test = JSON.stringify(test);
 });
@@ -103,27 +103,27 @@ $("#submit").on("click", function (event) {
 
 
 function checkValid(obj, templ) {
-    console.log(1);
-    console.log(obj);
+    // console.log(1);
+    // console.log(obj);
     let str = $(obj).val();
-    console.log(str);
+    // console.log(str);
 
     // let templName = /[A-Z][a-z]+/;////////////////////////
     if (!str) {
         $(obj).next(".empty").css('display', 'block');
         $(obj).nextAll(".error").css('display', 'none');
-        console.log("empty");
+        // console.log("empty");
         return false;
     }
     if (templ.test(str)) {//////////////
         $(obj).nextAll(".error").css('display', 'none');
         $(obj).next(".empty").css('display', 'none');
-        console.log("check");
+        // console.log("check");
         return true;
     } else {
         $(obj).next(".empty").css('display', 'none');
         $(obj).nextAll(".error").css('display', 'block');
-        console.log("not check");
+        // console.log("not check");
         return false;
     }
 
@@ -190,9 +190,9 @@ function isThereTest() {
     try {
         if (JSON.parse(localStorage.test)) {
             test = JSON.parse(localStorage.test);
-            console.log(test);
+            // console.log(test);
             for (let key in test) {
-                console.log(`#${key}`);
+                // console.log(`#${key}`);
                 $(`#${key}`).attr('checked', "checked");
             }
         }
@@ -203,19 +203,13 @@ function isThereTest() {
 }
 
 function sendTest(event) {
-    // studentTest.student = student;
-    // studentTest.test = test;
-    // studentTest.timeStart = startTest;
-    // studentTest.timeEnd = new Date();
-    // studentTest.timer = timeTest;
-    // let testDone = new FormData( studentTest );
-    console.log(1);
-    console.log(student.name, student.lastName);
-    console.log(student.eMail);
-    console.log(JSON.stringify(startTest));
-    console.log(JSON.stringify( new Date() ));
-    console.log(timeTest);
-    console.log(JSON.stringify(test));
+    // console.log(1);
+    // console.log(student.name, student.lastName);
+    // console.log(student.eMail);
+    // console.log(JSON.stringify(startTest));
+    // console.log(JSON.stringify( new Date() ));
+    // console.log(timeTest);
+    // console.log(JSON.stringify(test));
     let studentTest = JSON.stringify(test);
     $.post(
         "./src/php/sent.php",
