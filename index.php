@@ -43,8 +43,7 @@
         <div class="wrap">
             <h3>Предмет: Экономика предприятия</h3>
             <h3>Преподаватель: Федоренко Галина Михайловна</h3>
-            <h4>fedorenko@gmail.com</h4>
-            <a href=""></a>
+            <h4>galyafed7@gmail.com</h4>
         </div>
 
         <div class="wrap">
@@ -55,7 +54,7 @@
 
     </footer>
 
-    <script src="src/libs/jQuery3.5.1.js"></script>
+    <script src="src/libs/jQuery3.5.1.min.js"></script>
     <script src="src/js/main.js"></script>
 </body>
 </html>

@@ -82,15 +82,13 @@ section {
   display: block;
 }
 
-
 header {
   width: 100%;
   @include border_b;
   .row {
+    box-sizing: border-box;
     width: 100%;
     padding: 10px 30px;
-    //border-bottom: 1px solid #9f9f9f;
-    //box-shadow: 0 2px 7px 3px #c6c6c6;
     @include border_b;
     background-image: url(../../img/headerbg.png);
     background-repeat: no-repeat;
@@ -116,6 +114,7 @@ header {
     }
   }
   section.sub_header {
+    box-sizing: border-box;
     border: none;
     box-shadow: none;
     width: 1200px;
@@ -128,13 +127,13 @@ header {
   }
 }
 
-
-
 main {
   width: 100%;
+  position: relative;
   section.registration {
     display: block;
     form {
+      box-sizing: border-box;
       width: 768px;
       margin: auto;
       text-align: center;
@@ -168,6 +167,7 @@ main {
 
   section.test {
     display: block;
+    box-sizing: border-box;
     header {
       width: 1200px;
       margin: 0 auto 40px;
@@ -196,12 +196,14 @@ main {
       background-color: #000000;
       color: chartreuse;
       text-align: center;
+      z-index: 20;
       span {
         display: inline;
       }
     }
 
     .body {
+      box-sizing: border-box;
       width: 992px;
       margin: auto;
       position: relative;
@@ -248,15 +250,26 @@ main {
   }
 
   .done {
+    display: none;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(255,255,255,0.3);
-    z-index: 10;
-    .done__wrap {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 100;
+    .done__success, .done__error {
+      position: relative;
+      top: 25vh;
+      background-color: #fff;
+      display: none;
       width: 50%;
-
+      margin: auto;
+      padding: 100px;
+      text-align: center;
+      box-shadow: 0 0 7px 3px #c6c6c6;
     }
+
   }
 }
 
@@ -297,21 +310,6 @@ footer {
     line-height: 32px;
   }
 
-  a {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-image: url(../../img/Dingtalk-square-01-light.png);
-    background-repeat: no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-    background-position: center center;
-    &:hover {
-      background-image: url(../../img/Dingtalk-square-01-dark.png);
-
-    }
-  }
-
   p {
     color: #244973;
 
@@ -324,4 +322,394 @@ footer {
 
 .disable {
   display: none !important;
+}
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+  header {
+    section.sub_header {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.9px) {
+  header {
+    section.sub_header {
+      width: 768px;
+      margin: 40px auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      h1, h2, p {
+        width: 100%;
+      }
+    }
+  }
+
+  main {
+
+    section.test {
+      padding-left: 15px;
+      padding-right: 15px;
+      header {
+        width: 90%;
+      }
+
+      .body {
+        width: 95%;
+      }
+    }
+
+  }
+
+  footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    .logo {
+      width: 40%;
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    .wrap {
+      width: 60%;
+      margin-bottom: 20px;
+    }
+
+    h3, h4 {
+    }
+
+    h4 {
+      display: inline-block;
+      margin-right: 25px;
+      line-height: 32px;
+    }
+
+    p {
+      color: #244973;
+
+    }
+  }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 991.9px) {
+  header {
+    .row {
+      .logo {
+        width: 90%;
+        img {
+          display: block;
+          height: 60px;
+          margin-right: 20px;
+        }
+      }
+    }
+    section.sub_header {
+      width: 90%;
+      margin: 30px auto;
+      padding: 15px 0;
+      h1 {
+        margin: 20px 0;
+      }
+    }
+  }
+
+  main {
+    section.registration {
+      form {
+        width: 90%;
+      }
+    }
+
+    section.test {
+      header {
+        width: 90%;
+      }
+
+      .body {
+        width: 100%;
+        form {
+          width: 90%;
+          margin: auto;
+        }
+      }
+    }
+
+    .done {
+      .done__success, .done__error {
+        top: 20vh;
+        width: 75vw;
+        padding: 50px;
+      }
+
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .logo {
+      width: 100%;
+      margin: auto;
+      justify-content: center;
+      h2 {
+        font-size: 2rem;
+        text-align: left;
+      }
+    }
+
+    .wrap {
+      width: 100%;
+    }
+
+  }
+
+
+}
+
+@media (min-width: 576px) and (max-width: 767.9px) {
+  header {
+    .row {
+      .logo {
+        width: 90%;
+        h2 {
+          width: auto;
+        }
+      }
+    }
+    section.sub_header {
+      width: 90%;
+      margin: 20px auto;
+      padding: 0 0 25px;
+    }
+  }
+
+  main {
+    section.registration {
+      padding: 30px 0;
+      form {
+        width: 100%;
+        padding: 0 15px;
+        .row {
+          width: 100%;
+          margin: 30px auto;
+        }
+      }
+    }
+
+    section.test {
+      padding: 25px 0;
+      header {
+        width: 100%;
+      }
+
+      .body {
+        width: 90%;
+
+        form {
+          margin: 30px 0;
+        }
+      }
+    }
+
+    .done {
+      .done__success, .done__error {
+        width: 80%;
+        margin: auto;
+        padding: 30px;
+      }
+
+    }
+  }
+
+  footer {
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .logo {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: 100%;
+    }
+
+  }
+
+
+}
+
+@media (max-width: 575.9px) {
+
+  h1 {
+    font-size: 3rem;
+    margin: 15px 0;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+  }
+
+  header {
+    .row {
+      padding: 10px 10px;
+      .logo {
+        width: 100%;
+        img {
+          height: 50px;
+          margin-right: 10px;
+        }
+        h2 {
+          width: 100%;
+          font-size: 1.4rem;
+        }
+      }
+    }
+    section.sub_header {
+      width: 100%;
+      padding: 10px 15px;
+      margin: 10px auto;
+      background-color: #fff;
+      h1, h2 {
+        text-align: center;
+      }
+
+    }
+  }
+
+  main {
+    section.registration {
+      padding: 20px 0;
+      form {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 15px;
+        .row {
+          flex-wrap: wrap;
+          label {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+          }
+          input {
+            width: 100%;
+          }
+        }
+
+        .empty, .error {
+          box-sizing: border-box;
+          width: 100%;
+          position: static;
+          text-align: left;
+        }
+      }
+    }
+
+    section.test {
+      padding: 20px 0;
+      header {
+        width: 100%;
+        margin: 0 auto 20px;
+      }
+
+      h2.timer {
+        top: 20px;
+        left: 30px;
+        right: 30px;
+        width: auto;
+        font-size: 2.5rem;
+      }
+
+      .body {
+        width: 100%;
+        padding: 0 10px;
+
+
+        form {
+          margin: 20px 0;
+          ol.questions {
+            li.questions__item {
+              margin-bottom: 10px;
+              padding: 10px;
+              font-size: 1.6rem;
+              h5 {
+                margin-left: 20px;
+              }
+              ol.answers {
+                margin-left: 15px;
+                padding-left: 15px;
+                li.answers__item {
+                  padding-left: 10px;
+                }
+              }
+            }
+          }
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .done {
+      .done__success, .done__error {
+        box-sizing: border-box;
+        position: relative;
+        top: 25vh;
+        width: 90vw;
+        padding: 20px;
+        h1 {
+          font-size: 2.5rem;
+        }
+        h3 {
+          font-size: 2.0rem;
+        }
+      }
+
+    }
+  }
+
+  footer {
+    padding: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .logo {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      img {
+        margin-right: 0;
+      }
+      h2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+    }
+
+    h3 {
+      font-size: 2.0rem;
+    }
+
+    h4 {
+      margin-right: 0;
+      line-height: 1;
+      font-size: 1.8rem;
+    }
+
+
+    p {
+      color: #244973;
+
+    }
+  }
+
+
 }

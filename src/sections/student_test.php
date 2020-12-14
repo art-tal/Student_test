@@ -8,7 +8,6 @@
 
     <div class="body">
         <form id="test"  name="test" method="post">
-<!--            action="/src/php/sent.php"-->
             <ol class="questions">
 
                 <li  class="questions__item"><!--1-->

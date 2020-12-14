@@ -71,6 +71,8 @@ header {
   -webkit-box-shadow: 0 2px 7px 3px #c6c6c6;
   box-shadow: 0 2px 7px 3px #c6c6c6; }
   header .row {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     width: 100%;
     padding: 10px 30px;
     border-bottom: 1px solid #9f9f9f;
@@ -102,6 +104,8 @@ header {
         margin: 5px 0;
         color: #f2f2f2; }
   header section.sub_header {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -112,10 +116,13 @@ header {
       text-align: center; }
 
 main {
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   main section.registration {
     display: block; }
     main section.registration form {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
       width: 768px;
       margin: auto;
       text-align: center; }
@@ -147,7 +154,9 @@ main {
         right: 0;
         text-align: right; }
   main section.test {
-    display: block; }
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
     main section.test header {
       width: 1200px;
       margin: 0 auto 40px;
@@ -172,10 +181,13 @@ main {
       font-weight: 100;
       background-color: #000000;
       color: chartreuse;
-      text-align: center; }
+      text-align: center;
+      z-index: 20; }
       main section.test h2.timer span {
         display: inline; }
     main section.test .body {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
       width: 992px;
       margin: auto;
       position: relative; }
@@ -209,6 +221,26 @@ main {
                 main section.test .body form ol.questions li.questions__item ol.answers li.answers__item label {
                   font-size: 1.6rem;
                   font-weight: normal; }
+  main .done {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 100; }
+    main .done .done__success, main .done .done__error {
+      position: relative;
+      top: 25vh;
+      background-color: #fff;
+      display: none;
+      width: 50%;
+      margin: auto;
+      padding: 100px;
+      text-align: center;
+      -webkit-box-shadow: 0 0 7px 3px #c6c6c6;
+      box-shadow: 0 0 7px 3px #c6c6c6; }
 
 footer {
   -webkit-box-sizing: border-box;
@@ -249,17 +281,6 @@ footer {
     display: inline-block;
     margin-right: 25px;
     line-height: 32px; }
-  footer a {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-image: url(../../img/Dingtalk-square-01-light.png);
-    background-repeat: no-repeat;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-    background-position: center center; }
-    footer a:hover {
-      background-image: url(../../img/Dingtalk-square-01-dark.png); }
   footer p {
     color: #244973; }
 
@@ -268,5 +289,252 @@ footer {
 
 .disable {
   display: none !important; }
+
+@media (min-width: 1200px) and (max-width: 1440px) {
+  header section.sub_header {
+    padding-left: 15px;
+    padding-right: 15px; } }
+
+@media (min-width: 992px) and (max-width: 1199.9px) {
+  header section.sub_header {
+    width: 768px;
+    margin: 40px auto;
+    padding-left: 15px;
+    padding-right: 15px; }
+    header section.sub_header h1, header section.sub_header h2, header section.sub_header p {
+      width: 100%; }
+  main section.test {
+    padding-left: 15px;
+    padding-right: 15px; }
+    main section.test header {
+      width: 90%; }
+    main section.test .body {
+      width: 95%; }
+  footer {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    footer .logo {
+      width: 40%; }
+      footer .logo h2 {
+        font-size: 1.8rem; }
+    footer .wrap {
+      width: 60%;
+      margin-bottom: 20px; }
+    footer h4 {
+      display: inline-block;
+      margin-right: 25px;
+      line-height: 32px; }
+    footer p {
+      color: #244973; } }
+
+@media (min-width: 768px) and (max-width: 991.9px) {
+  header .row .logo {
+    width: 90%; }
+    header .row .logo img {
+      display: block;
+      height: 60px;
+      margin-right: 20px; }
+  header section.sub_header {
+    width: 90%;
+    margin: 30px auto;
+    padding: 15px 0; }
+    header section.sub_header h1 {
+      margin: 20px 0; }
+  main section.registration form {
+    width: 90%; }
+  main section.test header {
+    width: 90%; }
+  main section.test .body {
+    width: 100%; }
+    main section.test .body form {
+      width: 90%;
+      margin: auto; }
+  main .done .done__success, main .done .done__error {
+    top: 20vh;
+    width: 75vw;
+    padding: 50px; }
+  footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    footer .logo {
+      width: 100%;
+      margin: auto;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      footer .logo h2 {
+        font-size: 2rem;
+        text-align: left; }
+    footer .wrap {
+      width: 100%; } }
+
+@media (min-width: 576px) and (max-width: 767.9px) {
+  header .row .logo {
+    width: 90%; }
+    header .row .logo h2 {
+      width: auto; }
+  header section.sub_header {
+    width: 90%;
+    margin: 20px auto;
+    padding: 0 0 25px; }
+  main section.registration {
+    padding: 30px 0; }
+    main section.registration form {
+      width: 100%;
+      padding: 0 15px; }
+      main section.registration form .row {
+        width: 100%;
+        margin: 30px auto; }
+  main section.test {
+    padding: 25px 0; }
+    main section.test header {
+      width: 100%; }
+    main section.test .body {
+      width: 90%; }
+      main section.test .body form {
+        margin: 30px 0; }
+  main .done .done__success, main .done .done__error {
+    width: 80%;
+    margin: auto;
+    padding: 30px; }
+  footer {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    footer .logo {
+      width: 100%;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    footer .wrap {
+      width: 100%; } }
+
+@media (max-width: 575.9px) {
+  h1 {
+    font-size: 3rem;
+    margin: 15px 0; }
+  h2 {
+    font-size: 2.5rem;
+    margin: 15px 0; }
+  header .row {
+    padding: 10px 10px; }
+    header .row .logo {
+      width: 100%; }
+      header .row .logo img {
+        height: 50px;
+        margin-right: 10px; }
+      header .row .logo h2 {
+        width: 100%;
+        font-size: 1.4rem; }
+  header section.sub_header {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px auto;
+    background-color: #fff; }
+    header section.sub_header h1, header section.sub_header h2 {
+      text-align: center; }
+  main section.registration {
+    padding: 20px 0; }
+    main section.registration form {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 15px; }
+      main section.registration form .row {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+        main section.registration form .row label {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 15px; }
+        main section.registration form .row input {
+          width: 100%; }
+      main section.registration form .empty, main section.registration form .error {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        position: static;
+        text-align: left; }
+  main section.test {
+    padding: 20px 0; }
+    main section.test header {
+      width: 100%;
+      margin: 0 auto 20px; }
+    main section.test h2.timer {
+      top: 20px;
+      left: 30px;
+      right: 30px;
+      width: auto;
+      font-size: 2.5rem; }
+    main section.test .body {
+      width: 100%;
+      padding: 0 10px; }
+      main section.test .body form {
+        margin: 20px 0; }
+        main section.test .body form ol.questions li.questions__item {
+          margin-bottom: 10px;
+          padding: 10px;
+          font-size: 1.6rem; }
+          main section.test .body form ol.questions li.questions__item h5 {
+            margin-left: 20px; }
+          main section.test .body form ol.questions li.questions__item ol.answers {
+            margin-left: 15px;
+            padding-left: 15px; }
+            main section.test .body form ol.questions li.questions__item ol.answers li.answers__item {
+              padding-left: 10px; }
+        main section.test .body form button {
+          width: 100%; }
+  main .done .done__success, main .done .done__error {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    top: 25vh;
+    width: 90vw;
+    padding: 20px; }
+    main .done .done__success h1, main .done .done__error h1 {
+      font-size: 2.5rem; }
+    main .done .done__success h3, main .done .done__error h3 {
+      font-size: 2.0rem; }
+  footer {
+    padding: 10px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    footer .logo {
+      width: 100%;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      footer .logo img {
+        margin-right: 0; }
+      footer .logo h2 {
+        font-size: 1.8rem;
+        text-align: center; }
+    footer h3 {
+      font-size: 2.0rem; }
+    footer h4 {
+      margin-right: 0;
+      line-height: 1;
+      font-size: 1.8rem; }
+    footer p {
+      color: #244973; } }
 
 /*# sourceMappingURL=main.css.map */
