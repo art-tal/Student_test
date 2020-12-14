@@ -16,6 +16,9 @@ let test = {};
 const studentTest = {};
 
 let startTest = '';
+
+let time;
+
 let timeTest = {
     minutes: 0,
     seconds: 0,
@@ -118,6 +121,7 @@ function timer() {
             if (timeTest.minutes === 80) {
                 clock.text(`${format(timeTest.minutes)}:${format(timeTest.seconds)}`);
                 clock.css("color", "red");
+                timerStop();
                 doneTest();
                 return;
             }
@@ -126,7 +130,7 @@ function timer() {
         localStorage.timeTest = JSON.stringify(timeTest);
     }
 
-let time = setInterval(() => {
+    time = setInterval(() => {
     if (timeTest.seconds === 59) {
         timeTest.seconds = 0;
         ++timeTest.minutes;
@@ -185,6 +189,7 @@ function sendTest() {
         }
     )
         .done( () => {
+            timerStop();
             doneTest();
         } )
         .fail( () => {
@@ -201,9 +206,14 @@ function doneTest() {
     $(".done").fadeIn(500);
     test = null;
     localStorage.test = 0;
+}
+
+function timerStop() {
+    clearInterval(time);
     timeTest.minutes = 80;
     timeTest.seconds = "0"
     localStorage.timeTest = JSON.stringify(timeTest);
+
 }
 
 
