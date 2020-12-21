@@ -19,6 +19,8 @@ let startTest = '';
 
 let time;
 
+let deathLine = 90;
+
 let timeTest = {
     minutes: 0,
     seconds: 0,
@@ -118,7 +120,7 @@ function timer() {
     try {
         if (JSON.parse( localStorage.timeTest )) {
             timeTest = JSON.parse( localStorage.timeTest );
-            if (timeTest.minutes === 80) {
+            if (timeTest.minutes === deathLine) {
                 clock.text(`${format(timeTest.minutes)}:${format(timeTest.seconds)}`);
                 clock.css("color", "red");
                 timerStop();
@@ -143,7 +145,7 @@ function timer() {
         case 75:
             clock.css("color", "red");
             break;
-        case 80:
+        case deathLine:
             radio.attr("disable", "disable");
             radio.off();
             clearInterval(time);
@@ -197,6 +199,11 @@ function sendTest() {
             $(".done__success").hide();
             $(".done__error").show();
             $(".done").fadeIn(500);
+            clearInterval(time);
+            setTimeout( () => {
+                $(".done").fadeOut(500);
+                timer();
+            }, 5000 );
         } )
 }
 
@@ -204,13 +211,14 @@ function doneTest() {
     $(".done__success").show();
     $(".done__error").hide();
     $(".done").fadeIn(500);
+    $(".test").fadeOut();
     test = null;
     localStorage.test = 0;
 }
 
 function timerStop() {
     clearInterval(time);
-    timeTest.minutes = 80;
+    timeTest.minutes = deathLine;
     timeTest.seconds = "0"
     localStorage.timeTest = JSON.stringify(timeTest);
 
