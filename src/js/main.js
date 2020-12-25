@@ -177,12 +177,17 @@ function isThereTest() {
 
 }
 
+function countAnswers(test) {
+    return Object.keys(test).length;
+}
+
 function sendTest() {
     studentTest.student = student.name + " " + student.lastName;
     studentTest.eMail = student.eMail;
     studentTest.timeStart = startTest;
     studentTest.timeEnd = new Date();
     studentTest.timer = timeTest.minutes + ":" + timeTest.seconds;
+    studentTest.count = countAnswers(test);
     studentTest.test = test;
     $.post(
         "./src/php/mail.php",

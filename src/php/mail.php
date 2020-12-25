@@ -5,8 +5,8 @@ if (isset($_POST['studentTest'])) {$studentTest = json_decode($_POST['studentTes
 else {$studentTest = "НИХЕРА";}
 
 /* Здесь необходимо вписать ваш e-mail адрес */
-$sender = "talanov_artem@ukr.net";
-$recipient = "talanov_artem@ukr.net";
+$sender = "galyafed7@gmail.com";
+$recipient = "galyafed7@gmail.com";
 
 $header  = "MIME-Version: 1.0\r\n";
 $header .= "Content-type: text/html; charset: utf8\r\n";
@@ -29,6 +29,7 @@ $mes = "<html lang='en'>
                 <h1>Тестовое задание $studentTest->student</h1>
                 <h2>$studentTest->eMail</h2>
                 <h3>Тест начат: $studentTest->timeStart</h3>
+                <h3>Всего дано ответов: $studentTest->count</h3>
                 <h3>Ответы студента $studentTest->student на вопросы:</h3>
                     <ul>";
 
