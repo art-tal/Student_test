@@ -5,7 +5,7 @@ let student = {
 };
 
 let templName = /[A-Z][a-z]+/;
-let templMail = /[a-z]+[.\w]+@[a-z]+\.[a-z]+/i;
+let templMail = /[.\w\d]+@[a-z]+\.[a-z]+/i;
 
 let validName = false;
 let validLastName = false;
